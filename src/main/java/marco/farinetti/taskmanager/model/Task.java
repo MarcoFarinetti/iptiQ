@@ -20,16 +20,15 @@ public class Task {
     return priority;
   }
 
-  public long getCreationTime() {
-    return creationTime;
-  }
-
   @Override
   public String toString() {
     return "Task{" +
         "pid=" + pid +
         ", priority=" + priority +
-        ", creationTime=" + creationTime +
-        '}';
+        "}";
+  }
+
+  public long getCreationTime() {
+    return creationTime;
   }
 }
