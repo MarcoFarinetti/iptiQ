@@ -37,7 +37,7 @@ public class TaskManagerImpl implements TaskManager {
 
   private void addTaskWithMaxCapacity(Task task) {
     if (!tasks.offer(task)) {
-      System.out.println("Could not add new task" + task + " - maximum capacity reached");
+      System.out.println("Could not add new task " + task + " - maximum capacity reached");
     }
   }
 
@@ -54,8 +54,9 @@ public class TaskManagerImpl implements TaskManager {
             .sorted(Comparator.comparingLong(Task::getCreationTime))
             .collect(Collectors.toList());
       case PRIORITY:
+        //sorting HIGH to LOW
         return tasks.stream()
-            .sorted(Comparator.comparing(Task::getPriority))
+            .sorted(Comparator.comparing(Task::getPriority).reversed())
             .collect(Collectors.toList());
       case PID:
         return tasks.stream()

@@ -1,5 +1,6 @@
 package marco.farinetti.taskmanager.model;
 
+//Enum comparison 1,2,3
 public enum Priority {
-  HIGH, MEDIUM, LOW
+  LOW, MEDIUM, HIGH
 }

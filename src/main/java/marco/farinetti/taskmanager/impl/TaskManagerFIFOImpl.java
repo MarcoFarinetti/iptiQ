@@ -16,6 +16,7 @@ public class TaskManagerFIFOImpl extends TaskManagerImpl {
   private synchronized void addTaskFIFO(Task task) {
     if (!tasks.offer(task)) {
       System.out.println("Maximum capacity reached - removing oldest task");
+      //LinkedBlockingQueue by default orders elements FIFO, hence why we can simply call remove()
       tasks.remove();
       tasks.offer(task);
     }

@@ -16,9 +16,10 @@ public class TaskManagerPriorityImpl extends TaskManagerImpl {
 
   private synchronized void addTaskByPriority(Task task) {
     if (!tasks.offer(task)) {
-      System.out.println("Maximum capacity reached - removing lowest priority task");
+      System.out.println("Maximum capacity reached - removing lowest priority task if present");
+      //Priorities: HIGH 3, MEDIUM 2, LOW 1 -> remove if existing.prio < task.prio
       tasks.stream()
-          .filter(t -> task.getPriority().compareTo(t.getPriority()) < 0)
+          .filter(t -> t.getPriority().compareTo(task.getPriority()) < 0)
           .min(Comparator.comparing(Task::getCreationTime))
           .ifPresent(e -> tasks.remove(e));
       tasks.offer(task);
