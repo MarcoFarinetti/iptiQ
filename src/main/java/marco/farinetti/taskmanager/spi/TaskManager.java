@@ -2,10 +2,11 @@ package marco.farinetti.taskmanager.spi;
 
 import marco.farinetti.taskmanager.model.Priority;
 import marco.farinetti.taskmanager.model.SortingParam;
+import marco.farinetti.taskmanager.model.Task;
 
 public interface TaskManager {
 
-  void add(Priority priority);
+  Task add(Priority priority);
 
   void list(SortingParam param);
 

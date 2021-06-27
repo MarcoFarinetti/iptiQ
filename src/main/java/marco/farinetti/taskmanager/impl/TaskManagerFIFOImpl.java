@@ -6,10 +6,11 @@ import marco.farinetti.taskmanager.model.Task;
 public class TaskManagerFIFOImpl extends TaskManagerImpl {
 
   @Override
-  public void add(Priority priority) {
+  public Task add(Priority priority) {
     Integer pid = pidGenerator.getAndIncrement();
     Task task = new Task(pid, priority);
     addTaskFIFO(task);
+    return task;
   }
 
   private synchronized void addTaskFIFO(Task task) {
